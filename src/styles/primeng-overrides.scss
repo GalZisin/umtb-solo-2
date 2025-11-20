@@ -1,0 +1,50 @@
+// PrimeNG Component Overrides
+
+// p-toolbar {
+//   display: flex;
+//   justify-content: space-between;
+
+//   @media (min-width: 768px) {
+//     justify-content: flex-start;
+//   }
+// }
+
+// Form Controls
+input,
+p-dropdown {
+  direction: rtl;
+  text-align: right;
+}
+
+// Checkbox
+p-checkbox {
+  direction: rtl;
+  text-align: right;
+
+  .p-checkbox-label {
+    margin-right: 0.5rem;
+  }
+}
+
+// Form Labels
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+// Customer Form
+.customer-form {
+  direction: rtl;
+  text-align: right;
+
+  .row {
+    direction: rtl;
+  }
+
+  .col-md-4,
+  .col-md-6 {
+    text-align: right;
+  }
+}

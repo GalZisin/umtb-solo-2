@@ -1,0 +1,83 @@
+.stepper {
+  width: 100%;
+}
+
+.stepper-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.stepper-header::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: 1;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  z-index: 2;
+  background: white;
+  padding: 0 10px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s;
+}
+
+.step.active .step-number {
+  background-color: #007bff;
+  color: white;
+}
+
+.step.completed .step-number {
+  background-color: #28a745;
+  color: white;
+}
+
+.step-label {
+  font-size: 0.9rem;
+  text-align: center;
+  color: #666;
+}
+
+.step.active .step-label {
+  color: #007bff;
+  font-weight: 600;
+}
+
+.stepper-content {
+  min-height: 150px;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+.stepper-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}

@@ -1,0 +1,40 @@
+<p-toolbar class="header">
+  <ng-template pTemplate="start">
+    <div class="d-flex align-items-center gap-3">
+      <div class="logo">LOGO</div>
+      <!-- Desktop Menu -->
+      <div class="d-none d-md-flex gap-2">
+        <p-button label="Home" (onClick)="navigateToHome()" severity="secondary"></p-button>
+        <p-button label="PrimeNG Test" (onClick)="navigateToPrimeNG()" severity="secondary"></p-button>
+        <p-button label="About" (onClick)="navigateToAbout()" severity="secondary"></p-button>
+        <p-button label="Contact" (onClick)="navigateToContact()" severity="secondary"></p-button>
+      </div>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="end">
+    <!-- Mobile Icons -->
+    <div class="d-md-none d-flex gap-2">
+      <p-button 
+        icon="pi pi-search" 
+        (onClick)="onSearch()" 
+        severity="secondary">
+      </p-button>
+      <p-button 
+        icon="pi pi-bars" 
+        (onClick)="toggleMobileSidebar()" 
+        severity="secondary">
+      </p-button>
+    </div>
+  </ng-template>
+</p-toolbar>
+
+<!-- Mobile Sidebar -->
+<p-sidebar [(visible)]="mobileSidebarVisible" position="right" class="d-md-none">
+  <h5>Menu</h5>
+  <div class="d-flex flex-column gap-2">
+    <p-button label="Home" (onClick)="navigateToHome()" severity="secondary" class="w-100"></p-button>
+    <p-button label="PrimeNG Test" (onClick)="navigateToPrimeNG()" severity="secondary" class="w-100"></p-button>
+    <p-button label="About" (onClick)="navigateToAbout()" severity="secondary" class="w-100"></p-button>
+    <p-button label="Contact" (onClick)="navigateToContact()" severity="secondary" class="w-100"></p-button>
+  </div>
+</p-sidebar>
