@@ -1,8 +1,8 @@
-<div class="main-content d-flex flex-column align-items-center justify-content-start pt-5">
-  <p-card header="!ברוכים הבאים" class="card text-center mb-3 mx-auto" [ngStyle]="{'max-width': '350px'}">
+<div class="main-content d-flex flex-column align-items-center justify-content-center">
+  <p-card header="!ברוכים הבאים" class="card text-center mb-3">
     <div class="d-flex justify-content-center gap-2 mb-2 flex-wrap">
-      <p-image src="https://via.placeholder.com/60x60/f0f0f0/666?text=IMG1" alt="Image 1" width="60" height="60"></p-image>
-      <p-image src="https://via.placeholder.com/60x60/f0f0f0/666?text=IMG2" alt="Image 2" width="60" height="60"></p-image>
+     <p-image src="assets/images/macabi.png" alt="מכבי" width="93" height="38"></p-image>
+     <p-image src="https://via.placeholder.com/60x60/f0f0f0/666?text=IMG2" alt="Image 2" width="60" height="60"></p-image>
     </div>
     <p class="text small">
      הגעתם למערכת אשראי צרכני של בנק מזרחי טפחות. כדי<br>
@@ -10,7 +10,7 @@
     </p>
   </p-card>
 
-  <p-card class="card mx-auto text-end" [ngStyle]="{'width': '95%'}">
+  <p-card class="card text-end">
     <h3 class="text-end mb-3">יש למלא את פרטי הלקוח</h3>
     
     <form [formGroup]="customerDetails" (ngSubmit)="onSubmit()" class="customer-form text-end">
@@ -18,15 +18,15 @@
       <div class="row mb-2">
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">שם פרטי</label>
-          <input type="text" pInputText formControlName="firstName" class="w-100" />
+          <input type="text" pInputText formControlName="firstName" class="w-100" aria-label="שם פרטי" />
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">שם משפחה</label>
-          <input type="text" pInputText formControlName="lastName" class="w-100" />
+          <input type="text" pInputText formControlName="lastName" class="w-100" aria-label="שם משפחה" />
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">מספר ת"ז</label>
-          <input type="text" pInputText formControlName="idNumber" class="w-100" />
+          <input type="text" pInputText formControlName="idNumber" class="w-100" aria-label="מספר תעודת זהות" />
         </div>
       </div>
       
@@ -34,15 +34,15 @@
       <div class="row mb-2">
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">טלפון נייד</label>
-          <input type="tel" pInputText formControlName="mobilePhone" class="w-100" />
+          <input type="tel" pInputText formControlName="mobilePhone" class="w-100" aria-label="טלפון נייד" />
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">כתובת דוא"ל</label>
-          <input type="email" pInputText formControlName="email" class="w-100" />
+          <input type="email" pInputText formControlName="email" class="w-100" aria-label="כתובת דואר אלקטרוני" />
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">סכום הלוואה מבוקשת</label>
-          <input type="number" pInputText formControlName="loanAmount" class="w-100" />
+          <input type="number" pInputText formControlName="loanAmount" class="w-100" aria-label="סכום הלוואה מבוקשת" />
         </div>
       </div>
       
@@ -50,7 +50,7 @@
       <div class="row mb-2">
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">מספר הזמנה</label>
-          <input type="text" pInputText formControlName="orderNumber" class="w-100" />
+          <input type="text" pInputText formControlName="orderNumber" class="w-100" aria-label="מספר הזמנה" />
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">סוג השירות</label>

@@ -1,13 +1,26 @@
 // PrimeNG Component Overrides
 
-// p-toolbar {
-//   display: flex;
-//   justify-content: space-between;
+.p-card {
+  box-shadow: none !important;
+}
 
-//   @media (min-width: 768px) {
-//     justify-content: flex-start;
-//   }
-// }
+.small-card {
+  border: 1px solid #ddd !important;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: none !important;
+  margin: 1rem 0 !important;
+}
+
+.card {
+  background: white !important;
+  border-radius: 8px !important;
+  padding: 1rem !important;
+
+  @media (min-width: 768px) {
+    padding: 1.25rem !important;
+  }
+}
 
 // Form Controls
 input,

@@ -28,7 +28,7 @@ import { TreeModule } from 'primeng/tree';
 import { DataViewModule } from 'primeng/dataview';
 import { StepperModule } from 'primeng/stepper';
 import { MessageService } from 'primeng/api';
-import { CustomStepperComponent } from '../custom-stepper/custom-stepper.component';
+// import { CustomStepperComponent } from '../custom-stepper/custom-stepper.component';
 
 @Component({
   selector: 'app-primeng-test',
@@ -60,7 +60,7 @@ import { CustomStepperComponent } from '../custom-stepper/custom-stepper.compone
     TreeModule,
     DataViewModule,
     StepperModule,
-    CustomStepperComponent
+    // CustomStepperComponent
   ],
   providers: [MessageService],
   templateUrl: './primeng-test.component.html',
@@ -117,7 +117,7 @@ export class PrimengTestComponent {
   displayDialog = false;
   sidebarVisible = false;
 
-  constructor(private messageService: MessageService) {}
+  constructor(private messageService: MessageService) { }
 
   showDialog() {
     this.displayDialog = true;

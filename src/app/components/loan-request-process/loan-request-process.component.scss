@@ -1,0 +1,30 @@
+.main-content {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1rem;
+  padding-bottom: 120px;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 70px;
+  }
+
+  .card {
+    @media (min-width: 768px) {
+      width: 80%;
+    }
+  }
+
+  .text {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .small-text {
+    color: #666;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+}
