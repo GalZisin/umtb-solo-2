@@ -4,6 +4,10 @@
   box-shadow: none !important;
 }
 
+.p-toolbar {
+  height: 70px !important;
+}
+
 .small-card {
   border: 1px solid #ddd !important;
   border-radius: 8px;
@@ -19,6 +23,43 @@
 
   @media (min-width: 768px) {
     padding: 1.25rem !important;
+  }
+}
+
+// Global compact styles for screens up to 1920px
+@media (min-width: 768px) and (max-width: 1920px) {
+  .form-label {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  input, .p-dropdown {
+    height: 1.5rem !important;
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.2rem !important;
+  }
+
+  .mb-3 {
+    margin-bottom: 0.3rem !important;
+  }
+
+  h3 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  .p-button {
+    height: 1.8rem !important;
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.6rem !important;
+  }
+
+  .card {
+    padding: 0.4rem !important;
   }
 }
 

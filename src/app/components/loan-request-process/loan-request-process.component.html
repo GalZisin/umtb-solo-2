@@ -1,8 +1,8 @@
 <app-header></app-header>
 
-<div class="main-content">
+<div class="main-content d-flex align-items-center justify-content-center">
   <!-- Mobile Layout -->
-  <div class="d-md-none d-flex flex-column justify-content-start" style="min-height: calc(100vh - 140px);">
+  <div class="d-md-none d-flex flex-column justify-content-center align-items-center mobile-layout">
     <h2 class="text-center text-md-end mb-4">תהליך בקשת הלוואה</h2>
 
     <!-- Big Card with Images and 3 Cards -->
@@ -16,17 +16,17 @@
       <!-- 3 Cards Vertical -->
       <div class="mb-3">
         <p-card class="text-center my-3" styleClass="small-card">
-          <i class="pi pi-user mb-2" style="font-size: 1.5rem; color: #667eea;"></i>
+          <i class="pi pi-user mb-2 card-icon"></i>
           <h6 class="mb-1">מילוי פרטים אישיים</h6>
           <p class="small-text">נמלא פרטים אישיים לצורך היכרות</p>
         </p-card>
         <p-card class="text-center my-3" styleClass="small-card">
-          <i class="pi pi-calculator mb-2" style="font-size: 1.5rem; color: #667eea;"></i>
+          <i class="pi pi-calculator mb-2 card-icon"></i>
           <h6 class="mb-1">מחשבון הלוואה</h6>
           <p class="small-text">נמלא פרטים הקשורים למצב החשבון שלך</p>
         </p-card>
         <p-card class="text-center my-3" styleClass="small-card">
-          <i class="pi pi-cog mb-2" style="font-size: 1.5rem; color: #667eea;"></i>
+          <i class="pi pi-cog mb-2 card-icon"></i>
           <h6 class="mb-1">הגדרת הלוואה</h6>
           <p class="small-text">נציג לך את האפשרויות שלך להלוואה ברגע</p>
         </p-card>
@@ -44,9 +44,9 @@
   
   <!-- Desktop Layout -->
   <div class="d-none d-md-flex flex-column align-items-center justify-content-center">
-    <h2 class="text-end mb-4 w-100">תהליך בקשת הלוואה</h2>
     
-    <div class="row justify-content-center mb-4 w-75">
+    <div class="row justify-content-center mb-4">
+          <h2 class="text-end mb-4 w-100">תהליך בקשת הלוואה</h2>
       <!-- Left Card - Image and Text -->
       <div class="col-12 col-md-6 mb-3">
         <p-card class="text-center" styleClass="card">
@@ -71,21 +71,21 @@
           <div class="row">
             <div class="col-4">
               <p-card class="text-center" styleClass="small-card">
-                <i class="pi pi-cog mb-2" style="font-size: 1.5rem; color: #667eea;"></i>
+                <i class="pi pi-cog mb-2 card-icon"></i>
                 <h6 class="mb-1">הגדרת הלוואה</h6>
                 <p class="small-text">נציג לך את האפשרויות שלך להלוואה ברגע</p>
               </p-card>
             </div>
             <div class="col-4">
               <p-card class="text-center" styleClass="small-card">
-                <i class="pi pi-calculator mb-2" style="font-size: 1.5rem; color: #667eea;"></i>
+                <i class="pi pi-calculator mb-2 card-icon"></i>
                 <h6 class="mb-1">מחשבון הלוואה</h6>
                 <p class="small-text">נמלא פרטים הקשורים למצב החשבון שלך</p>
               </p-card>
             </div>
             <div class="col-4">
               <p-card class="text-center" styleClass="small-card">
-                <i class="pi pi-user mb-2" style="font-size: 1.5rem; color: #667eea;"></i>
+                <i class="pi pi-user mb-2 card-icon"></i>
                 <h6 class="mb-1">מילוי פרטים אישיים</h6>
                 <p class="small-text">נמלא פרטים אישיים לצורך היכרות</p>
               </p-card>
