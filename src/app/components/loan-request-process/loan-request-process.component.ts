@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { HeaderComponent } from '../../shared/header/header.component';
 import { MobileFooterComponent } from '../../shared/mobile-footer/mobile-footer.component';
 import { CardModule } from 'primeng/card';
@@ -12,7 +13,9 @@ import { ButtonModule } from 'primeng/button';
   styleUrl: './loan-request-process.component.scss'
 })
 export class LoanRequestProcessComponent {
+  constructor(private router: Router) {}
+
   onStartClick() {
-    console.log('Start button clicked');
+    this.router.navigate(['/steps/personal-details']);
   }
 }

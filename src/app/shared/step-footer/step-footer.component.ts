@@ -30,7 +30,9 @@ export class StepFooterComponent {
   constructor(private router: Router) {}
 
   onPreviousClick() {
-    if (this.currentStep > 0) {
+    if (this.currentStep === 0) {
+      this.router.navigate(['/loan-request']);
+    } else if (this.currentStep > 0) {
       this.router.navigate([this.stepRoutes[this.currentStep - 1]]);
     }
     this.previousClick.emit();
