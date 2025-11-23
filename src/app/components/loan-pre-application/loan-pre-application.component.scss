@@ -47,3 +47,20 @@
   z-index: 1000;
   text-align: center;
 }
+
+.p-error {
+  color: #e74c3c !important;
+  font-size: 0.75rem !important;
+}
+
+.p-inputtext.ng-invalid.ng-touched {
+  border-color: #e74c3c !important;
+}
+
+.p-dropdown.ng-invalid.ng-touched .p-dropdown-label {
+  border-color: #e74c3c !important;
+}
+
+.p-dropdown-panel {
+  min-width: 100% !important;
+}

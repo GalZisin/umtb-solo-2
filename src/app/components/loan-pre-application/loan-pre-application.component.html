@@ -6,7 +6,7 @@
     </div>
     <p class="text small">
      הגעתם למערכת אשראי צרכני של בנק מזרחי טפחות. כדי<br>
-     להתחיל, מלאו את פרטי הלקוח כדי לשלוח לו קישור
+    .להתחיל, מלאו את פרטי הלקוח כדי לשלוח לו קישור
     </p>
   </p-card>
 
@@ -19,14 +19,17 @@
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">שם פרטי</label>
           <input type="text" pInputText formControlName="firstName" class="w-100" aria-label="שם פרטי" />
+          <small class="p-error d-block text-end" *ngIf="getFieldError('firstName')">{{ getFieldError('firstName') }}</small>
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">שם משפחה</label>
           <input type="text" pInputText formControlName="lastName" class="w-100" aria-label="שם משפחה" />
+          <small class="p-error d-block text-end" *ngIf="getFieldError('lastName')">{{ getFieldError('lastName') }}</small>
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">מספר ת"ז</label>
           <input type="text" pInputText formControlName="idNumber" class="w-100" aria-label="מספר תעודת זהות" />
+          <small class="p-error d-block text-end" *ngIf="getFieldError('idNumber')">{{ getFieldError('idNumber') }}</small>
         </div>
       </div>
       
@@ -35,14 +38,17 @@
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">טלפון נייד</label>
           <input type="tel" pInputText formControlName="mobilePhone" class="w-100" aria-label="טלפון נייד" />
+          <small class="p-error d-block text-end" *ngIf="getFieldError('mobilePhone')">{{ getFieldError('mobilePhone') }}</small>
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">כתובת דוא"ל</label>
           <input type="email" pInputText formControlName="email" class="w-100" aria-label="כתובת דואר אלקטרוני" />
+          <small class="p-error d-block text-end" *ngIf="getFieldError('email')">{{ getFieldError('email') }}</small>
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">סכום הלוואה מבוקשת</label>
           <input type="number" pInputText formControlName="loanAmount" class="w-100" aria-label="סכום הלוואה מבוקשת" />
+          <small class="p-error d-block text-end" *ngIf="getFieldError('loanAmount')">{{ getFieldError('loanAmount') }}</small>
         </div>
       </div>
       
@@ -54,20 +60,23 @@
         </div>
         <div class="col-12 col-md-4 mb-2">
           <label class="form-label text-end d-block">סוג השירות</label>
-          <p-dropdown [options]="serviceTypes" formControlName="serviceType" placeholder="בחר סוג שירות" class="w-100"></p-dropdown>
+          <p-dropdown [options]="serviceTypes" formControlName="serviceType" placeholder="בחר סוג שירות" class="w-100" scrollHeight="150px" appendTo="body"></p-dropdown>
         </div>
         <div class="col-12 col-md-4 mb-2 d-none d-md-block">
           <!-- Empty column to maintain alignment on desktop -->
         </div>
       </div>
       
-      <div class="mb-2 d-flex align-items-center justify-content-start">
-        <p-checkbox formControlName="marketingConsent" binary="true"></p-checkbox>
-        <span class="me-3">אישור לקבלת מידע שיווקי במסרון / דואר אלקטרוני</span>
+      <div class="my-4">
+        <div class="d-flex align-items-center justify-content-start">
+          <p-checkbox formControlName="marketingConsent" binary="true"></p-checkbox>
+          <span class="me-3">אישור לקבלת מידע שיווקי במסרון / דואר אלקטרוני</span>
+        </div>
+        <small class="p-error d-block text-end" *ngIf="getFieldError('marketingConsent')">{{ getFieldError('marketingConsent') }}</small>
       </div>
       
       <div class="text-center d-none d-md-block">
-        <p-button type="submit" label="שליחת קישור ללקוח" [disabled]="!customerDetails.valid"></p-button>
+        <p-button type="submit" label="שליחת קישור ללקוח"></p-button>
       </div>
     </form>
   </p-card>
@@ -75,5 +84,5 @@
 
 <!-- Mobile Footer -->
 <div class="mobile-footer d-md-none">
-  <p-button type="submit" label="שליחת קישור ללקוח" [disabled]="!customerDetails.valid" (onClick)="onSubmit()" class="w-100"></p-button>
+  <p-button type="submit" label="שליחת קישור ללקוח" (onClick)="onSubmit()" class="w-100"></p-button>
 </div>

@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { PrimengTestComponent } from './components/primeng-test/primeng-test.component';
-import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { LoanPreApplicationComponent } from './components/loan-pre-application/loan-pre-application.component';
 import { LoanRequestProcessComponent } from './components/loan-request-process/loan-request-process.component';
 import { PersonalDetailsStepComponent } from './components/steps/personal-details-step/personal-details-step.component';
 import { SpouseDetailsStepComponent } from './components/steps/spouse-details-step/spouse-details-step.component';
@@ -13,7 +13,7 @@ import { LoanSubmissionStepComponent } from './components/steps/loan-submission-
 import { ApprovedLoanDetailsComponent } from './components/steps/approved-loan-details/approved-loan-details.component';
 
 export const routes: Routes = [
-  { path: '', component: LandingPageComponent },
+  { path: '', component: LoanPreApplicationComponent },
   { path: 'primeng-test', component: PrimengTestComponent },
   { path: 'loan-request', component: LoanRequestProcessComponent },
   { path: 'steps/personal-details', component: PersonalDetailsStepComponent },

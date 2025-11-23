@@ -14,6 +14,7 @@
   padding: 0.5rem;
   box-shadow: none !important;
   margin: 1rem 0 !important;
+  height: -webkit-fill-available !important;
 }
 
 .card {
@@ -33,10 +34,16 @@
     margin-bottom: 0.1rem !important;
   }
 
-  input, .p-dropdown {
-    height: 1.5rem !important;
-    font-size: 0.7rem !important;
+  input,
+  .p-dropdown,
+  .p-calendar .p-inputtext {
+    height: 2.25rem !important;
+    // font-size: 0.7rem !important;
     padding: 0.2rem 0.4rem !important;
+  }
+
+  .p-calendar {
+    height: 2.25rem !important;
   }
 
   .mb-2 {
@@ -60,6 +67,10 @@
 
   .card {
     padding: 0.4rem !important;
+  }
+
+  .p-select-label {
+    padding: 0 !important;
   }
 }
 
@@ -89,7 +100,8 @@ p-checkbox {
 }
 
 // Customer Form
-.customer-form {
+.customer-form,
+.personal-form {
   direction: rtl;
   text-align: right;
 
@@ -100,5 +112,24 @@ p-checkbox {
   .col-md-4,
   .col-md-6 {
     text-align: right;
+  }
+}
+
+.p-select-overlay {
+  width: 100% !important;
+}
+
+// Card spacing
+.card-1 .p-card {
+  margin-bottom: 1.5rem !important;
+}
+
+// Calendar input sizing
+.p-calendar,
+.p-datepicker {
+  width: 100% !important;
+
+  .p-inputtext {
+    width: 100% !important;
   }
 }

@@ -49,41 +49,42 @@
           <h2 class="text-end mb-4 w-100">תהליך בקשת הלוואה</h2>
       <!-- Left Card - Image and Text -->
       <div class="col-12 col-md-6 mb-3 pe-md-4">
-        <p-card class="text-center" styleClass="card">
+        <app-support-card></app-support-card>
+        <!-- <p-card class="text-center" styleClass="card">
           <p-image src="https://via.placeholder.com/150x150/f0f0f0/666?text=PROCESS" alt="Process Image" width="150" height="150"></p-image>
-          <p class="text mt-3">תהליך בקשת ההלוואה פשוט ומהיר</p>
-        </p-card>
+          <h2>?נתקלת בבעיה</h2>
+          <p class="text mt-3">מוקד השירות שלנו 03-0000000</p>
+        </p-card> -->
       </div>
       
       <!-- Right Card - Welcome Content + 3 Cards -->
       <div class="col-12 col-md-6 mb-3 ps-md-4">
         <p-card class="text-center mb-3" styleClass="card">
-          <div class="d-flex justify-content-center gap-2 mb-2 flex-wrap">
+          <div class="d-flex justify-content-center gap-2 pb-3 flex-wrap">
             <p-image src="assets/images/macabi.png" alt="מכבי" width="93" height="38"></p-image>
             <p-image src="https://via.placeholder.com/60x60/f0f0f0/666?text=IMG2" alt="Image 2" width="60" height="60"></p-image>
           </div>
-          <p class="text small pb-3">
-           הגעתם למערכת אשראי צרכני של בנק מזרחי טפחות. כדי<br>
-           להתחיל, מלאו את פרטי הלקוח כדי לשלוח לו קישור
+          <p class="text small pb-2">
+              ברוכים הבאים לתהליך הלוואה בשיתוף [שם החברה] . אלה השלבים בתהליך <br>
           </p>
 
           <!-- 3 Cards in Row -->
-          <div class="row">
-            <div class="col-4">
+          <div class="row mb-3">
+            <div class="d-flex col-4">
               <p-card class="text-center" styleClass="small-card">
                 <i class="pi pi-cog mb-2 card-icon"></i>
                 <h6 class="mb-1">הגדרת הלוואה</h6>
-                <p class="small-text">נציג לך את האפשרויות שלך להלוואה ברגע</p>
+                <p class="small-text">נגדיר את פרטי ההלוואה שלך ונבדוק את התנאים המאושרים לך</p>
               </p-card>
             </div>
-            <div class="col-4">
+            <div class="d-flex col-4">
               <p-card class="text-center" styleClass="small-card">
                 <i class="pi pi-calculator mb-2 card-icon"></i>
                 <h6 class="mb-1">מחשבון הלוואה</h6>
-                <p class="small-text">נמלא פרטים הקשורים למצב החשבון שלך</p>
+                <p class="small-text">נחשב את ההחזר החודשי והריבית הצפויה</p>
               </p-card>
             </div>
-            <div class="col-4">
+            <div class="d-flex col-4">
               <p-card class="text-center" styleClass="small-card">
                 <i class="pi pi-user mb-2 card-icon"></i>
                 <h6 class="mb-1">מילוי פרטים אישיים</h6>
@@ -92,7 +93,7 @@
             </div>
           </div>
           
-          <div class="text-center mt-3">
+          <div class="text-center">
             <p-button label="בוא נתחיל" (onClick)="onStartClick()"></p-button>
           </div>
         </p-card>
