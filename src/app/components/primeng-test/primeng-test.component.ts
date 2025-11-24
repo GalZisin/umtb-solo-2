@@ -27,7 +27,9 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { TreeModule } from 'primeng/tree';
 import { DataViewModule } from 'primeng/dataview';
 import { StepperModule } from 'primeng/stepper';
+import { SelectButtonModule } from 'primeng/selectbutton';
 import { MessageService } from 'primeng/api';
+import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 // import { CustomStepperComponent } from '../custom-stepper/custom-stepper.component';
 
 @Component({
@@ -60,6 +62,8 @@ import { MessageService } from 'primeng/api';
     TreeModule,
     DataViewModule,
     StepperModule,
+    SelectButtonModule,
+    ReactiveFormsModule,
     // CustomStepperComponent
   ],
   providers: [MessageService],
@@ -117,7 +121,19 @@ export class PrimengTestComponent {
   displayDialog = false;
   sidebarVisible = false;
 
-  constructor(private messageService: MessageService) { }
+  // SelectButton form
+  formGroup: FormGroup;
+  stateOptions = [
+    { label: 'Option 1', value: 'option1' },
+    { label: 'Option 2', value: 'option2' },
+    // { label: 'Option 3', value: 'option3' }
+  ];
+
+  constructor(private messageService: MessageService, private fb: FormBuilder) {
+    this.formGroup = this.fb.group({
+      value: ['option1']
+    });
+  }
 
   showDialog() {
     this.displayDialog = true;

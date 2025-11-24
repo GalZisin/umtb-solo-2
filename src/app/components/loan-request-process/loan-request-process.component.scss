@@ -28,39 +28,7 @@
     margin: 0;
   }
 
-  // Compact styles for screens up to 1920px
-  @media (min-width: 768px) and (max-width: 1920px) {
-    h2 {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem !important;
-    }
 
-    h6 {
-      font-size: 0.7rem;
-      margin-bottom: 0.2rem !important;
-    }
-
-    .small-text {
-      font-size: 0.6rem;
-    }
-
-    .text {
-      font-size: 0.7rem;
-      line-height: 1.2;
-    }
-
-    .mb-3 {
-      margin-bottom: 0.5rem !important;
-    }
-
-    .mb-4 {
-      margin-bottom: 0.75rem !important;
-    }
-
-    .mt-3 {
-      margin-top: 0.5rem !important;
-    }
-  }
 
   .mobile-layout {
     min-height: calc(100vh - 140px);

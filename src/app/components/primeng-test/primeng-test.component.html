@@ -122,6 +122,14 @@
     <p-fileUpload mode="basic" chooseLabel="Choose File"></p-fileUpload>
   </p-card>
 
+  <!-- SelectButton -->
+  <p-card header="SelectButton">
+    <form [formGroup]="formGroup">
+      <p-selectbutton [options]="stateOptions" formControlName="value" optionLabel="label" optionValue="value" />
+    </form>
+    <p>Selected Value: {{ formGroup.get('value')?.value }}</p>
+  </p-card>
+
   <!-- Custom Stepper Demo -->
   <!-- <p-card header="Custom Stepper Demo">
     <app-custom-stepper></app-custom-stepper>

@@ -1,23 +1,28 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StepFooterComponent } from '../../../shared/step-footer/step-footer.component';
 import { SupportCardComponent } from '../../../shared/support-card/support-card.component';
+import { HeaderComponent } from '../../../shared/header/header.component';
 import { israeliIdValidator, mobilePhoneValidator } from '../../../validators/validators';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
+import { SelectButtonModule } from 'primeng/selectbutton';
 
 @Component({
   selector: 'app-personal-details-step',
-  imports: [CommonModule, ReactiveFormsModule, StepFooterComponent, SupportCardComponent, CardModule, InputTextModule, DropdownModule, CalendarModule, CheckboxModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule, StepFooterComponent, SupportCardComponent, HeaderComponent, CardModule, InputTextModule, DropdownModule, CalendarModule, CheckboxModule, SelectButtonModule],
   templateUrl: './personal-details-step.component.html',
   styleUrl: './personal-details-step.component.scss'
 })
 export class PersonalDetailsStepComponent {
   personalForm: FormGroup;
+  displayPublicPositionDescription: boolean = false;
+  private yesButtonClicked: boolean = false;
+  selectedPublicPosition: any = null;
 
   genderOptions = [
     { label: 'זכר', value: 'male' },
@@ -36,6 +41,13 @@ export class PersonalDetailsStepComponent {
     { label: 'לא', value: false }
   ];
 
+  yesNoOptions = [
+    { label: 'כן', value: true },
+    { label: 'לא', value: false }
+  ];
+
+
+
   constructor(private fb: FormBuilder) {
     this.personalForm = this.fb.group({
       firstName: ['', Validators.required],
@@ -47,10 +59,12 @@ export class PersonalDetailsStepComponent {
       birthDate: ['', Validators.required],
       idIssueDate: ['', Validators.required],
       idExpiryDate: ['', Validators.required],
-      biometricId: ['', Validators.required],
+      biometricId: [null, Validators.required],
       maritalStatus: ['', Validators.required],
       childrenCount: ['', Validators.required],
-      bankingConsent: [false, Validators.requiredTrue]
+      bankingConsent: [false, Validators.requiredTrue],
+      publicPosition: [null, Validators.required],
+      publicPositionDescription: ['']
     });
   }
 
@@ -80,6 +94,41 @@ export class PersonalDetailsStepComponent {
   //   }
   //   return '';
   // }
+
+  onPublicPositionChange(event: any) {
+    const currentValue = this.personalForm.get('publicPosition')?.value;
+    
+    // If clicking כן for the first time
+    if (event.value === true && !this.yesButtonClicked) {
+      this.yesButtonClicked = true;
+      this.displayPublicPositionDescription = true;
+      this.selectedPublicPosition = true;
+      this.personalForm.get('publicPosition')?.setValue(true);
+      return;
+    }
+    
+    // If clicking כן again after it was already clicked (second time)
+    if (event.value === true && this.yesButtonClicked && currentValue === true) {
+      // Keep input displayed but set form value to null
+      this.displayPublicPositionDescription = true;
+      this.selectedPublicPosition = null;
+      this.personalForm.get('publicPosition')?.setValue(null);
+      return;
+    }
+    
+    // If clicking לא
+    if (event.value === false) {
+      this.displayPublicPositionDescription = false;
+      this.yesButtonClicked = false;
+      this.selectedPublicPosition = false;
+      this.personalForm.get('publicPosition')?.setValue(false);
+      return;
+    }
+    
+    // Default case
+    this.selectedPublicPosition = event.value;
+    this.personalForm.get('publicPosition')?.setValue(event.value);
+  }
 
   onSubmit() {
     if (this.personalForm.valid) {

@@ -1,16 +1,18 @@
-<div class="main-content d-flex align-items-center justify-content-center">
+<app-header></app-header>
+
+<div class="main-content personal-details-step d-flex align-items-center justify-content-center">
   <div class="row justify-content-center mb-4 w-100">
+       <h2 class="text-center text-md-end mb-4">תהליך בקשת הלוואה</h2>
     <!-- Left Card - Support -->
-    <div class="col-12 col-md-6 mb-3 pe-md-4">
+    <div class="col-12 col-md-4 mb-3 pe-md-4">
       <app-support-card></app-support-card>
     </div>
     
     <!-- Right Card - Step Content -->
-    <div class="col-12 col-md-6 mb-3 ps-md-4">
-      <p-card class="card-1 text-end" styleClass="card">
-        <h3 class="text-end mb-3">פרטים אישיים</h3>
-        
-        <form [formGroup]="personalForm" (ngSubmit)="onSubmit()" class="personal-form text-end">
+    <div class="col-12 col-md-8 mb-3 ps-md-4">
+      <form [formGroup]="personalForm" (ngSubmit)="onSubmit()" class="personal-form text-end">
+        <p-card class="card-1 text-end" styleClass="card">
+          <h3 class="text-end mb-3">יש למלא את פרטי הלקוח</h3>
           <!-- Row 1: 3 fields -->
           <div class="row mb-2">
             <div class="col-12 col-md-4 mb-2">
@@ -72,7 +74,7 @@
           <div class="row mb-2">
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block">ת"ז ביומטרי</label>
-              <p-dropdown [options]="biometricOptions" formControlName="biometricId" placeholder="בחר אפשרות" class="w-100"></p-dropdown>
+              <p-selectbutton [options]="biometricOptions" formControlName="biometricId" optionLabel="label" optionValue="value" class="w-100"></p-selectbutton>
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('biometricId')">{{ getFieldError('biometricId') }}</small> -->
             </div>
             <div class="col-12 col-md-4 mb-2">
@@ -94,13 +96,24 @@
             </div>
             <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('bankingConsent')">{{ getFieldError('bankingConsent') }}</small> -->
           </div>
-        </form>
-      </p-card>
+        </p-card>
 
-       <p-card class="card-2 text-center" styleClass="card">
-        <h3>Personal Details Step</h3>
-        <p>Content will go here</p>
-      </p-card>
+        <p-card class="card-2 text-end" styleClass="card">
+          <h3 class="text-end mb-3">כרטיס נוסף</h3>
+          
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">אני משמש בתפקיד ציבורי בכיר</label>
+              <p-selectbutton [options]="yesNoOptions" formControlName="publicPosition" optionLabel="label" optionValue="value" [multiple]="false" (onChange)="onPublicPositionChange($event)" class="w-100"></p-selectbutton>
+            </div>
+            <div class="col-12 col-md-4 mb-2" *ngIf="displayPublicPositionDescription">
+              <label class="form-label text-end d-block">תיאור התפקיד</label>
+              <input type="text" pInputText formControlName="publicPositionDescription" class="w-100" aria-label="תיאור התפקיד" />
+            </div>
+            <div class="col-12 col-md-4 mb-2"></div>
+          </div>
+        </p-card>
+      </form>
     </div>
   </div>
 </div>
