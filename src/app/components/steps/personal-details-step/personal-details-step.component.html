@@ -55,17 +55,17 @@
           <div class="row mb-2">
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block">תאריך לידה</label>
-              <p-calendar formControlName="birthDate" class="w-100" dateFormat="dd/mm/yy"></p-calendar>
+              <p-calendar formControlName="birthDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('birthDate')">{{ getFieldError('birthDate') }}</small> -->
             </div>
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block">תאריך הנפקת ת"ז</label>
-              <p-calendar formControlName="idIssueDate" class="w-100" dateFormat="dd/mm/yy"></p-calendar>
+              <p-calendar formControlName="idIssueDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('idIssueDate')">{{ getFieldError('idIssueDate') }}</small> -->
             </div>
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block">תאריך תום תוקף ת"ז</label>
-              <p-calendar formControlName="idExpiryDate" class="w-100" dateFormat="dd/mm/yy"></p-calendar>
+              <p-calendar formControlName="idExpiryDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('idExpiryDate')">{{ getFieldError('idExpiryDate') }}</small> -->
             </div>
           </div>
@@ -74,7 +74,7 @@
           <div class="row mb-2">
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block">ת"ז ביומטרי</label>
-              <p-selectbutton [options]="biometricOptions" formControlName="biometricId" optionLabel="label" optionValue="value" class="w-100"></p-selectbutton>
+              <p-selectbutton [options]="biometricOptions" formControlName="biometricId" optionLabel="label" optionValue="value" [allowEmpty]="false" class="w-100"></p-selectbutton>
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('biometricId')">{{ getFieldError('biometricId') }}</small> -->
             </div>
             <div class="col-12 col-md-4 mb-2">
@@ -99,16 +99,50 @@
         </p-card>
 
         <p-card class="card-2 text-end" styleClass="card">
-          <h3 class="text-end mb-3">כרטיס נוסף</h3>
+          <h3 class="text-end mb-3">סמן את הסעיפים הלוונטים עבורך</h3>
           
           <div class="row mb-2">
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block">אני משמש בתפקיד ציבורי בכיר</label>
-              <p-selectbutton [options]="yesNoOptions" formControlName="publicPosition" optionLabel="label" optionValue="value" [multiple]="false" (onChange)="onPublicPositionChange($event)" class="w-100"></p-selectbutton>
+              <p-selectbutton [options]="yesNoOptions" formControlName="publicPosition" optionLabel="label" optionValue="value" [multiple]="false" [allowEmpty]="false" (onChange)="onPublicPositionChange($event)" class="w-100"></p-selectbutton>
             </div>
             <div class="col-12 col-md-4 mb-2" *ngIf="displayPublicPositionDescription">
               <label class="form-label text-end d-block">תיאור התפקיד</label>
-              <input type="text" pInputText formControlName="publicPositionDescription" class="w-100" aria-label="תיאור התפקיד" />
+              <input type="text" pInputText formControlName="publicPositionDescription" class="w-100" aria-label="תיאור התפקיד" maxlength="50" />
+            </div>
+            <div class="col-12 col-md-4 mb-2"></div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">בן משפחה משתמש בתפקיד ציבורי</label>
+              <p-selectbutton [options]="yesNoOptions" formControlName="familyMemberPublicPosition" optionLabel="label" optionValue="value" [multiple]="false" [allowEmpty]="false" (onChange)="onFamilyMemberPublicPositionChange($event)" class="w-100"></p-selectbutton>
+            </div>
+            <div class="col-12 col-md-4 mb-2" *ngIf="displayFamilyMemberPublicPositionDescription">
+              <label class="form-label text-end d-block">תיאור התפקיד בן משפחה</label>
+              <input type="text" pInputText formControlName="familyMemberPositionDescription" class="w-100" aria-label="תיאור התפקיד בן משפחה" maxlength="50" />
+            </div>
+            <div class="col-12 col-md-4 mb-2"></div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">אין עוד נהנים בחשבון מלבדי</label>
+              <p-selectbutton [options]="yesNoOptions" formControlName="noOtherBeneficiaries" optionLabel="label" optionValue="value" [multiple]="false" [allowEmpty]="false" class="w-100"></p-selectbutton>
+            </div>
+            <div class="col-12 col-md-4 mb-2"></div>
+            <div class="col-12 col-md-4 mb-2"></div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">יש לי תושבות מס נוספת פרט לישראל</label>
+              <p-selectbutton [options]="yesNoOptions" formControlName="additionalTaxResidency" optionLabel="label" optionValue="value" [multiple]="false" [allowEmpty]="false" (onChange)="onAdditionalTaxResidencyChange($event)" class="w-100"></p-selectbutton>
+            </div>
+            <div class="col-12 col-md-4 mb-2" *ngIf="displayAdditionalTaxResidencyCountries">
+              <label class="form-label text-end d-block">מצב משפחתי</label>
+              <!-- <p-dropdown [options]="countries" formControlName="countries" placeholder="בחר מדינות" class="w-100"></p-dropdown> -->
+              <p-multiSelect [options]="countries" formControlName="countries" placeholder="בחר מדינות"></p-multiSelect>
             </div>
             <div class="col-12 col-md-4 mb-2"></div>
           </div>
@@ -118,4 +152,4 @@
   </div>
 </div>
 
-<app-step-footer [currentStep]="0"></app-step-footer>
+<app-step-footer [currentStep]="0" (nextClick)="onNextClick()"></app-step-footer>

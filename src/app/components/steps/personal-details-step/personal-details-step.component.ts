@@ -1,54 +1,84 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  FormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { StepFooterComponent } from '../../../shared/step-footer/step-footer.component';
 import { SupportCardComponent } from '../../../shared/support-card/support-card.component';
 import { HeaderComponent } from '../../../shared/header/header.component';
-import { israeliIdValidator, mobilePhoneValidator } from '../../../validators/validators';
+import {
+  israeliIdValidator,
+  mobilePhoneValidator,
+} from '../../../validators/validators';
 import { CardModule } from 'primeng/card';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { CalendarModule } from 'primeng/calendar';
 import { CheckboxModule } from 'primeng/checkbox';
 import { SelectButtonModule } from 'primeng/selectbutton';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { FormDataService } from '../../../services/form-data.service';
 
 @Component({
   selector: 'app-personal-details-step',
-  imports: [CommonModule, ReactiveFormsModule, FormsModule, StepFooterComponent, SupportCardComponent, HeaderComponent, CardModule, InputTextModule, DropdownModule, CalendarModule, CheckboxModule, SelectButtonModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    FormsModule,
+    StepFooterComponent,
+    SupportCardComponent,
+    HeaderComponent,
+    CardModule,
+    InputTextModule,
+    DropdownModule,
+    CalendarModule,
+    CheckboxModule,
+    SelectButtonModule,
+    MultiSelectModule
+  ],
   templateUrl: './personal-details-step.component.html',
-  styleUrl: './personal-details-step.component.scss'
+  styleUrl: './personal-details-step.component.scss',
 })
 export class PersonalDetailsStepComponent {
   personalForm: FormGroup;
   displayPublicPositionDescription: boolean = false;
-  private yesButtonClicked: boolean = false;
-  selectedPublicPosition: any = null;
+  displayFamilyMemberPublicPositionDescription: boolean = false;
+  displayAdditionalTaxResidencyCountries: boolean = false;
 
   genderOptions = [
     { label: 'זכר', value: 'male' },
-    { label: 'נקבה', value: 'female' }
+    { label: 'נקבה', value: 'female' },
   ];
 
   maritalStatusOptions = [
     { label: 'רווק/ה', value: 'single' },
     { label: 'נשוי/אה', value: 'married' },
     { label: 'גרוש/ה', value: 'divorced' },
-    { label: 'אלמן/ה', value: 'widowed' }
+    { label: 'אלמן/ה', value: 'widowed' },
   ];
 
   biometricOptions = [
     { label: 'כן', value: true },
-    { label: 'לא', value: false }
+    { label: 'לא', value: false },
   ];
 
   yesNoOptions = [
     { label: 'כן', value: true },
-    { label: 'לא', value: false }
+    { label: 'לא', value: false },
   ];
 
+  countries = [
+    { label: 'סין', value: 'Chaina' },
+    { label: 'אירן', value: 'Iran' },
+  ];
+  private fb = inject(FormBuilder);
+  private formDataService = inject(FormDataService);
 
-
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.personalForm = this.fb.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -64,7 +94,12 @@ export class PersonalDetailsStepComponent {
       childrenCount: ['', Validators.required],
       bankingConsent: [false, Validators.requiredTrue],
       publicPosition: [null, Validators.required],
-      publicPositionDescription: ['']
+      publicPositionDescription: ['', Validators.maxLength(50)],
+      familyMemberPublicPosition: [null, Validators.required],
+      familyMemberPositionDescription: ['', Validators.maxLength(50)],
+      noOtherBeneficiaries: ['', Validators.required],
+      additionalTaxResidency: ['', Validators.required],
+      countries: [[]],
     });
   }
 
@@ -96,43 +131,46 @@ export class PersonalDetailsStepComponent {
   // }
 
   onPublicPositionChange(event: any) {
-    const currentValue = this.personalForm.get('publicPosition')?.value;
-    
-    // If clicking כן for the first time
-    if (event.value === true && !this.yesButtonClicked) {
-      this.yesButtonClicked = true;
+    if (event.value) {
       this.displayPublicPositionDescription = true;
-      this.selectedPublicPosition = true;
-      this.personalForm.get('publicPosition')?.setValue(true);
       return;
-    }
-    
-    // If clicking כן again after it was already clicked (second time)
-    if (event.value === true && this.yesButtonClicked && currentValue === true) {
-      // Keep input displayed but set form value to null
-      this.displayPublicPositionDescription = true;
-      this.selectedPublicPosition = null;
-      this.personalForm.get('publicPosition')?.setValue(null);
-      return;
-    }
-    
-    // If clicking לא
-    if (event.value === false) {
+    } else {
       this.displayPublicPositionDescription = false;
-      this.yesButtonClicked = false;
-      this.selectedPublicPosition = false;
-      this.personalForm.get('publicPosition')?.setValue(false);
       return;
     }
-    
-    // Default case
-    this.selectedPublicPosition = event.value;
-    this.personalForm.get('publicPosition')?.setValue(event.value);
+  }
+
+  onFamilyMemberPublicPositionChange(event: any) {
+    if (event.value) {
+      this.displayFamilyMemberPublicPositionDescription = true;
+      return;
+    } else {
+      this.displayFamilyMemberPublicPositionDescription = false;
+      return;
+    }
+  }
+
+  onAdditionalTaxResidencyChange(event: any){
+    if (event.value) {
+      this.displayAdditionalTaxResidencyCountries = true;
+      return;
+    } else {
+      this.displayAdditionalTaxResidencyCountries = false;
+      return;
+    }
+  }
+
+  onNextClick() {
+    console.log('Form data when clicking לשלב הבא:', this.personalForm.value);
+    this.formDataService.updateStepData('personalDetails', this.personalForm.value);
+    console.log('All stored form data:', this.formDataService.getAllData());
   }
 
   onSubmit() {
     if (this.personalForm.valid) {
+      this.formDataService.updateStepData('personalDetails', this.personalForm.value);
       console.log('Personal form submitted:', this.personalForm.value);
+      console.log('All form data:', this.formDataService.getAllData());
     } else {
       this.personalForm.markAllAsTouched();
     }

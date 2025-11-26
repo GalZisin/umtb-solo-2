@@ -151,6 +151,27 @@ p-checkbox {
   width: 100% !important;
 }
 
+.p-multiselect {
+  width: 100% !important;
+  height: 2.25rem !important;
+
+  .p-multiselect-label {
+    height: 2.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 1920px) {
+    height: 2.25rem !important;
+
+    .p-multiselect-label {
+      height: 2.25rem !important;
+      font-size: 0.7rem !important;
+      padding: 0.2rem 0.4rem !important;
+    }
+  }
+}
+
 // Card spacing
 .card-1 .p-card {
   margin-bottom: 1.5rem !important;
@@ -170,17 +191,17 @@ p-checkbox {
 .p-selectbutton {
   height: 2.25rem !important;
   border: none !important;
-  
+
   .p-button {
     height: 2.25rem !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
   }
-  
+
   @media (min-width: 768px) and (max-width: 1920px) {
     height: 2.25rem !important;
-    
+
     .p-button {
       height: 2.25rem !important;
       font-size: 0.7rem !important;
