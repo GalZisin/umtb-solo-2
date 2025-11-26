@@ -1,0 +1,72 @@
+.main-content {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.5rem;
+  padding-bottom: 120px;
+  padding-top: 70px;
+
+  @media (min-width: 768px) {
+    padding: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+  }
+
+  @media (min-width: 768px) and (max-width: 1920px) {
+    .card.mb-3 {
+      margin-bottom: 1.5rem !important;
+    }
+  }
+
+  .card {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+
+    @media (min-width: 768px) {
+      padding: 0.5rem;
+    }
+
+    width: 95%;
+
+    @media (min-width: 768px) {
+      width: 50%;
+    }
+
+    .text {
+      color: #666;
+      line-height: 1.5;
+      margin: 0;
+    }
+  }
+
+
+}
+
+.mobile-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 1rem;
+  border-top: 1px solid #e0e0e0;
+  z-index: 1000;
+  text-align: center;
+}
+
+.p-error {
+  color: #e74c3c !important;
+  font-size: 0.75rem !important;
+}
+
+.p-inputtext.ng-invalid.ng-touched {
+  border-color: #e74c3c !important;
+}
+
+.p-dropdown.ng-invalid.ng-touched .p-dropdown-label {
+  border-color: #e74c3c !important;
+}
+
+.p-dropdown-panel {
+  min-width: 100% !important;
+}

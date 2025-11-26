@@ -1,0 +1,26 @@
+.main-content {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.5rem;
+
+  @media (min-width: 768px) {
+    padding: 0.25rem;
+    padding-bottom: 5rem;
+    padding-top: 0.25rem;
+  }
+}
+
+// Personal details specific bottom padding
+app-personal-details-step .main-content {
+  padding-bottom: 120px !important;
+
+  @media (min-width: 768px) {
+    padding-bottom: 40px !important;
+  }
+}
+
+// .displayPublicPositionDescription {
+//   .p-selectbutton .p-button {
+//     background: #ffff !important;
+//   }
+// }

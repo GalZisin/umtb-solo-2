@@ -1,0 +1,43 @@
+.main-content {
+  min-height: calc(100vh - 70px);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 0.5rem;
+  padding-bottom: 120px;
+
+  @media (min-width: 768px) {
+    padding: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-top: 0.25rem;
+  }
+
+  .card {
+    @media (min-width: 768px) {
+      width: 80%;
+    }
+  }
+
+  .text {
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .small-text {
+    color: #666;
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+
+
+  .mobile-layout {
+    min-height: calc(100vh - 140px);
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    color: #667eea;
+  }
+
+
+}

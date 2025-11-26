@@ -1,0 +1,39 @@
+.primeng-test-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.field label {
+  font-weight: 600;
+  color: #333;
+}
+
+p-card {
+  margin-bottom: 2rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+p-radioButton {
+  margin-right: 1rem;
+}

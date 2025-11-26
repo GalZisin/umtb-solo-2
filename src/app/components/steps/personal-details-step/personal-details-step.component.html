@@ -1,0 +1,155 @@
+<app-header></app-header>
+
+<div class="main-content personal-details-step d-flex align-items-center justify-content-center">
+  <div class="row justify-content-center mb-4 w-100">
+       <h2 class="text-center text-md-end mb-4">תהליך בקשת הלוואה</h2>
+    <!-- Left Card - Support -->
+    <div class="col-12 col-md-4 mb-3 pe-md-4">
+      <app-support-card></app-support-card>
+    </div>
+    
+    <!-- Right Card - Step Content -->
+    <div class="col-12 col-md-8 mb-3 ps-md-4">
+      <form [formGroup]="personalForm" (ngSubmit)="onSubmit()" class="personal-form text-end">
+        <p-card class="card-1 text-end" styleClass="card">
+          <h3 class="text-end mb-3">יש למלא את פרטי הלקוח</h3>
+          <!-- Row 1: 3 fields -->
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">שם פרטי</label>
+              <input type="text" pInputText formControlName="firstName" class="w-100" aria-label="שם פרטי" />
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('firstName')">{{ getFieldError('firstName') }}</small> -->
+            </div>
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">שם משפחה</label>
+              <input type="text" pInputText formControlName="lastName" class="w-100" aria-label="שם משפחה" />
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('lastName')">{{ getFieldError('lastName') }}</small> -->
+            </div>
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">מספר ת"ז</label>
+              <input type="text" pInputText formControlName="idNumber" class="w-100" aria-label="מספר תעודת זהות" />
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('idNumber')">{{ getFieldError('idNumber') }}</small> -->
+            </div>
+          </div>
+          
+          <!-- Row 2: 3 fields -->
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">טלפון נייד</label>
+              <input type="tel" pInputText formControlName="mobilePhone" class="w-100" aria-label="טלפון נייד" />
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('mobilePhone')">{{ getFieldError('mobilePhone') }}</small> -->
+            </div>
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">כתובת דוא"ל</label>
+              <input type="email" pInputText formControlName="email" class="w-100" aria-label="כתובת דואר אלקטרוני" />
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('email')">{{ getFieldError('email') }}</small> -->
+            </div>
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">מין</label>
+              <p-dropdown [options]="genderOptions" formControlName="gender" placeholder="בחר מין" class="w-100"></p-dropdown>
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('gender')">{{ getFieldError('gender') }}</small> -->
+            </div>
+          </div>
+          
+          <!-- Row 3: 3 fields -->
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">תאריך לידה</label>
+              <p-calendar formControlName="birthDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('birthDate')">{{ getFieldError('birthDate') }}</small> -->
+            </div>
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">תאריך הנפקת ת"ז</label>
+              <p-calendar formControlName="idIssueDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('idIssueDate')">{{ getFieldError('idIssueDate') }}</small> -->
+            </div>
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">תאריך תום תוקף ת"ז</label>
+              <p-calendar formControlName="idExpiryDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('idExpiryDate')">{{ getFieldError('idExpiryDate') }}</small> -->
+            </div>
+          </div>
+          
+          <!-- Row 4: 3 fields -->
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">ת"ז ביומטרי</label>
+              <p-selectbutton [options]="biometricOptions" formControlName="biometricId" optionLabel="label" optionValue="value" [allowEmpty]="false" class="w-100"></p-selectbutton>
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('biometricId')">{{ getFieldError('biometricId') }}</small> -->
+            </div>
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">מצב משפחתי</label>
+              <p-dropdown [options]="maritalStatusOptions" formControlName="maritalStatus" placeholder="בחר מצב" class="w-100"></p-dropdown>
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('maritalStatus')">{{ getFieldError('maritalStatus') }}</small> -->
+            </div>
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">מספר ילדים עד גיל 18</label>
+              <input type="number" pInputText formControlName="childrenCount" class="w-100" aria-label="מספר ילדים עד גיל 18" />
+              <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('childrenCount')">{{ getFieldError('childrenCount') }}</small> -->
+            </div>
+          </div>
+          
+          <div class="my-4">
+            <div class="d-flex align-items-center justify-content-start">
+              <p-checkbox formControlName="bankingConsent" binary="true"></p-checkbox>
+              <span class="me-3">אני מסכים שיבצעו בדיקות תקינות ואישור בנקאות בתקשורת. למידע נוסף זה</span>
+            </div>
+            <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('bankingConsent')">{{ getFieldError('bankingConsent') }}</small> -->
+          </div>
+        </p-card>
+
+        <p-card class="card-2 text-end" styleClass="card">
+          <h3 class="text-end mb-3">סמן את הסעיפים הלוונטים עבורך</h3>
+          
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">אני משמש בתפקיד ציבורי בכיר</label>
+              <p-selectbutton [options]="yesNoOptions" formControlName="publicPosition" optionLabel="label" optionValue="value" [multiple]="false" [allowEmpty]="false" (onChange)="onPublicPositionChange($event)" class="w-100"></p-selectbutton>
+            </div>
+            <div class="col-12 col-md-4 mb-2" *ngIf="displayPublicPositionDescription">
+              <label class="form-label text-end d-block">תיאור התפקיד</label>
+              <input type="text" pInputText formControlName="publicPositionDescription" class="w-100" aria-label="תיאור התפקיד" maxlength="50" />
+            </div>
+            <div class="col-12 col-md-4 mb-2"></div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">בן משפחה משתמש בתפקיד ציבורי</label>
+              <p-selectbutton [options]="yesNoOptions" formControlName="familyMemberPublicPosition" optionLabel="label" optionValue="value" [multiple]="false" [allowEmpty]="false" (onChange)="onFamilyMemberPublicPositionChange($event)" class="w-100"></p-selectbutton>
+            </div>
+            <div class="col-12 col-md-4 mb-2" *ngIf="displayFamilyMemberPublicPositionDescription">
+              <label class="form-label text-end d-block">תיאור התפקיד בן משפחה</label>
+              <input type="text" pInputText formControlName="familyMemberPositionDescription" class="w-100" aria-label="תיאור התפקיד בן משפחה" maxlength="50" />
+            </div>
+            <div class="col-12 col-md-4 mb-2"></div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">אין עוד נהנים בחשבון מלבדי</label>
+              <p-selectbutton [options]="yesNoOptions" formControlName="noOtherBeneficiaries" optionLabel="label" optionValue="value" [multiple]="false" [allowEmpty]="false" class="w-100"></p-selectbutton>
+            </div>
+            <div class="col-12 col-md-4 mb-2"></div>
+            <div class="col-12 col-md-4 mb-2"></div>
+          </div>
+
+          <div class="row mb-2">
+            <div class="col-12 col-md-4 mb-2">
+              <label class="form-label text-end d-block">יש לי תושבות מס נוספת פרט לישראל</label>
+              <p-selectbutton [options]="yesNoOptions" formControlName="additionalTaxResidency" optionLabel="label" optionValue="value" [multiple]="false" [allowEmpty]="false" (onChange)="onAdditionalTaxResidencyChange($event)" class="w-100"></p-selectbutton>
+            </div>
+            <div class="col-12 col-md-4 mb-2" *ngIf="displayAdditionalTaxResidencyCountries">
+              <label class="form-label text-end d-block">מצב משפחתי</label>
+              <!-- <p-dropdown [options]="countries" formControlName="countries" placeholder="בחר מדינות" class="w-100"></p-dropdown> -->
+              <p-multiSelect [options]="countries" formControlName="countries" placeholder="בחר מדינות"></p-multiSelect>
+            </div>
+            <div class="col-12 col-md-4 mb-2"></div>
+          </div>
+        </p-card>
+      </form>
+    </div>
+  </div>
+</div>
+
+<app-step-footer [currentStep]="0" (nextClick)="onNextClick()"></app-step-footer>

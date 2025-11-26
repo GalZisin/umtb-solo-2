@@ -1,0 +1,42 @@
+<div class="stepper">
+  <div class="stepper-header">
+    <div *ngFor="let step of steps; let i = index" 
+         class="step" 
+         [class.active]="i === currentStep"
+         [class.completed]="step.completed"
+         (click)="goToStep(i)">
+      <div class="step-number">{{i + 1}}</div>
+      <div class="step-label">{{step.label}}</div>
+    </div>
+  </div>
+  
+  <div class="stepper-content">
+    <div *ngIf="currentStep === 0">
+      <h3>Personal Information</h3>
+      <p>Enter your personal details here.</p>
+    </div>
+    <div *ngIf="currentStep === 1">
+      <h3>Address Information</h3>
+      <p>Enter your address details here.</p>
+    </div>
+    <div *ngIf="currentStep === 2">
+      <h3>Payment Information</h3>
+      <p>Enter your payment details here.</p>
+    </div>
+    <div *ngIf="currentStep === 3">
+      <h3>Confirmation</h3>
+      <p>Review and confirm your information.</p>
+    </div>
+  </div>
+  
+  <div class="stepper-actions">
+    <p-button label="Previous" 
+              [disabled]="currentStep === 0" 
+              (onClick)="prevStep()" 
+              severity="secondary"></p-button>
+    <p-button label="Next" 
+              [disabled]="currentStep === steps.length - 1" 
+              (onClick)="nextStep()" 
+              class="ml-2"></p-button>
+  </div>
+</div>

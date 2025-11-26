@@ -1,0 +1,252 @@
+// PrimeNG Component Overrides
+
+.p-card {
+  box-shadow: none !important;
+}
+
+.p-toolbar {
+  height: 70px !important;
+}
+
+.small-card {
+  border: 1px solid #ddd !important;
+  border-radius: 8px;
+  padding: 0.5rem;
+  box-shadow: none !important;
+  margin: 1rem 0 !important;
+  height: -webkit-fill-available !important;
+}
+
+.card {
+  background: white !important;
+  border-radius: 8px !important;
+  padding: 1rem !important;
+
+  @media (min-width: 768px) {
+    padding: 1.25rem !important;
+  }
+}
+
+// Global compact styles for screens up to 1920px
+@media (min-width: 768px) and (max-width: 1920px) {
+  .form-label {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.1rem !important;
+  }
+
+  input,
+  .p-dropdown,
+  .p-calendar .p-inputtext {
+    height: 2.25rem !important;
+    // font-size: 0.7rem !important;
+    padding: 0.2rem 0.4rem !important;
+  }
+
+  .p-calendar {
+    height: 2.25rem !important;
+  }
+
+  .mb-2 {
+    margin-bottom: 0.2rem !important;
+  }
+
+  .mb-3 {
+    margin-bottom: 0.3rem !important;
+  }
+
+  .mb-4 {
+    margin-bottom: 0.75rem !important;
+  }
+
+  .mt-3 {
+    margin-top: 0.5rem !important;
+  }
+
+  h2 {
+    font-size: 1.2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  h3 {
+    font-size: 0.9rem !important;
+    margin-bottom: 0.3rem !important;
+  }
+
+  h6 {
+    font-size: 0.7rem !important;
+    margin-bottom: 0.2rem !important;
+  }
+
+  .p-button {
+    height: 1.8rem !important;
+    font-size: 0.7rem !important;
+    padding: 0.2rem 0.6rem !important;
+  }
+
+  .card {
+    padding: 1rem !important;
+  }
+
+  .p-select-label {
+    padding: 0 !important;
+  }
+
+  .text {
+    font-size: 0.7rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .small-text {
+    font-size: 0.6rem !important;
+  }
+
+  .card-icon {
+    font-size: 1.5rem !important;
+    color: #667eea !important;
+  }
+}
+
+// Form Controls
+input,
+p-dropdown {
+  direction: rtl;
+  text-align: right;
+}
+
+// Checkbox
+p-checkbox {
+  direction: rtl;
+  text-align: right;
+
+  .p-checkbox-label {
+    margin-right: 0.5rem;
+  }
+}
+
+// Form Labels
+.form-label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.5rem;
+  text-align: right;
+}
+
+// Customer Form
+.customer-form,
+.personal-form {
+  direction: rtl;
+  text-align: right;
+
+  .row {
+    direction: rtl;
+  }
+
+  .col-md-4,
+  .col-md-6 {
+    text-align: right;
+  }
+}
+
+.p-select-overlay {
+  width: 100% !important;
+}
+
+.p-multiselect {
+  width: 100% !important;
+  height: 2.25rem !important;
+
+  .p-multiselect-label {
+    height: 2.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 1920px) {
+    height: 2.25rem !important;
+
+    .p-multiselect-label {
+      height: 2.25rem !important;
+      font-size: 0.7rem !important;
+      padding: 0.2rem 0.4rem !important;
+    }
+  }
+}
+
+// Card spacing
+.card-1 .p-card {
+  margin-bottom: 1.5rem !important;
+}
+
+// Calendar input sizing
+.p-calendar,
+.p-datepicker {
+  width: 100% !important;
+
+  .p-inputtext {
+    width: 100% !important;
+  }
+}
+
+// SelectButton sizing to match other form fields
+.p-selectbutton {
+  height: 2.25rem !important;
+  border: none !important;
+
+  .p-button {
+    height: 2.25rem !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 1920px) {
+    height: 2.25rem !important;
+
+    .p-button {
+      height: 2.25rem !important;
+      font-size: 0.7rem !important;
+      padding: 0.2rem 0.4rem !important;
+    }
+  }
+}
+
+// Remove red border from invalid p-selectbutton but preserve selection styling
+.p-selectbutton.ng-invalid.ng-touched,
+.p-selectbutton.ng-invalid,
+.p-selectbutton.p-invalid,
+.p-selectbutton.p-error {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.p-selectbutton .p-button:focus:not(.p-highlight),
+.p-selectbutton .p-button.p-focus:not(.p-highlight) {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+// Preserve selected button styling
+.p-selectbutton .p-button.p-highlight {
+  background-color: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+  color: var(--primary-color-text) !important;
+}
+
+// Header spacing for step components only
+.main-content.personal-details-step,
+.spouse-details-step .main-content,
+.address-details-step .main-content,
+.loan-amount-step .main-content,
+.account-opening-step .main-content,
+.loan-account-details-step .main-content,
+.salary-details-step .main-content,
+.loan-submission-step .main-content,
+.approved-loan-details .main-content {
+  padding-top: 90px !important;
+
+  @media (min-width: 768px) {
+    padding-top: 90px !important;
+  }
+}
