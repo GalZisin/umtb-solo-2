@@ -1,4 +1,4 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
@@ -13,9 +13,8 @@ import { SidebarModule } from 'primeng/sidebar';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  router = inject(Router)
   mobileSidebarVisible = false;
-
-  constructor(private router: Router) {}
 
   navigateToHome() {
     this.router.navigate(['/']);
