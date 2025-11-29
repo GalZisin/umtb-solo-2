@@ -1,3 +1,9 @@
+// Import custom style modules
+@use "./styles/variables.scss";
+@use "./styles/colors.scss";
+@use "./styles/fonts.scss";
+@use "./styles/typography.scss";
+@use "./styles/primeng-overrides.scss";
 /* You can add global styles to this file, and also import other style files */
 
 // PrimeNG Theme
@@ -16,6 +22,3 @@ body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
 }
-
-// Import PrimeNG overrides
-@import './styles/primeng-overrides.scss';

@@ -1,0 +1,54 @@
+@use "sass:map";
+
+// Brand Color Palette
+$colors: (
+    "main-dark": #323c4b,
+    "main-brand": #ff7d4b,
+    "danger": #f43e37,
+    "success": #28a745,
+    "white": #ffffff,
+);
+
+// Global Color Variables
+:root {
+    // Brand Colors
+    --color-primary: #{map.get($colors, "main-brand")};
+
+    // Text Colors
+    --text-primary: #{map.get($colors, "main-dark")};
+
+    // Status Colors
+    --color-danger: #{map.get($colors, "danger")};
+
+    // Backward Compatibility Aliases
+    --primary-color: var(--color-primary);
+
+    // Dark Mode Variables
+    [data-theme="dark"] {
+        // Brand Colors (same as light)
+        --color-primary: #{map.get($colors, "main-brand")};
+
+        // Text Colors
+        --text-primary: #{map.get($colors, "white")};
+
+        // Backward Compatibility Aliases
+        --primary-color: var(--color-primary);
+    }
+}
+
+// Auto dark mode based on system preference
+@media (prefers-color-scheme: dark) {
+    :root {
+        // Brand Colors (same as light)
+        --color-primary: #{map.get($colors, "main-brand")};
+
+        // Text Colors
+        --text-primary: #{map.get($colors, "white")};
+
+        // Status Colors (same as light)
+        --color-danger: #{map.get($colors, "danger")};
+
+        // Backward Compatibility Aliases
+        --primary-color: var(--color-primary);
+    }
+}

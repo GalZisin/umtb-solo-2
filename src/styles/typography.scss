@@ -1,0 +1,39 @@
+@use './variables.scss' as *;
+@use './colors.scss' as *;
+@use 'sass:map';
+@use 'sass:list';
+
+// Font families
+$font-families: (
+  'regular': ('Arial, sans-serif', normal),
+  'medium': ('Arial, sans-serif', 500),
+  'bold': ('Arial, sans-serif', bold)
+);
+
+// Font sizes mapping
+$font-sizes: (
+  '30': $font-size-xxl,
+  '28': $font-size-xl,
+  '24': $font-size-lg,
+  '22': $font-size-md,
+  '20': $font-size-base,
+  '19': $font-size-regular,
+  '18': $font-size-sm,
+  '16': $font-size-xs,
+  '14': $font-size-xxs,
+  '12': $font-size-xxxs
+);
+
+// Generate typography utility classes
+@each $family-name, $family-data in $font-families {
+  @each $size-name, $size-value in $font-sizes {
+    @each $color-name, $color-value in $colors {
+      .#{$family-name}-#{$size-name}-#{$color-name} {
+        font-family: #{list.nth($family-data, 1)};
+        font-weight: #{list.nth($family-data, 2)};
+        font-size: #{map.get($font-sizes, $size-name)};
+        color: #{map.get($colors, $color-name)};
+      }
+    }
+  }
+}

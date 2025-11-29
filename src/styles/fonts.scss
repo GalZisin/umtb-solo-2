@@ -1,0 +1,16 @@
+// Font Face Declarations
+@font-face {
+    font-family: 'FBTipografen';
+    src: url('../assets/fonts/fbtipografen-regular-webfont.eot');
+    src: url('../assets/fonts/fbtipografen-regular-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../assets/fonts/fbtipografen-regular-webfont.woff') format('woff'),
+        url('../assets/fonts/fbtipografen-regular-webfont.ttf') format('truetype'),
+        url('../assets/fonts/fbtipografen-regular-webfont.svg#fbtipografen_regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+// Font Variables
+$font-primary: 'FBTipografen', Arial, sans-serif;
+$font-secondary: Arial, sans-serif;

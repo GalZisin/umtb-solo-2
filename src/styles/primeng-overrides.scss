@@ -250,3 +250,22 @@ p-checkbox {
     padding-top: 90px !important;
   }
 }
+
+// Add space between card-2 and footer on mobile
+.card-2 .p-card {
+  margin-bottom: 3rem !important;
+
+  @media (min-width: 768px) {
+    margin-bottom: 0 !important;
+  }
+}
+
+.p-togglebutton {
+  padding: 0 !important;
+
+}
+
+.p-togglebutton-checked .p-togglebutton-content {
+  background-color: #5859E0 !important;
+  color: #ffff !important;
+}
