@@ -4,6 +4,7 @@ import Aura from '@primeng/themes/aura';
 import { routes } from './app.routes';
 import { providePrimeNG } from 'primeng/config';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { provideAnimations, provideNoopAnimations } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { httpInterceptor } from './interceptors/http.interceptor';
 
@@ -12,7 +13,9 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideHttpClient(withInterceptors([httpInterceptor])),
-        provideAnimationsAsync(),
+    // provideNoopAnimations(),
+    provideAnimations(),
+    // provideAnimationsAsync(),
     providePrimeNG({
       theme: {
         preset: Aura,

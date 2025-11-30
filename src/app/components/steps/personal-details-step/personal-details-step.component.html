@@ -50,22 +50,36 @@
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('gender')">{{ getFieldError('gender') }}</small> -->
             </div>
           </div>
-          
+
           <!-- Row 3: 3 fields -->
           <div class="row mb-2">
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block regular-14-main-dark">תאריך לידה</label>
-              <p-calendar formControlName="birthDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
+              <p-calendar 
+              #calendar
+              formControlName="birthDate" 
+              class="w-100" dateFormat="dd/mm/yy" 
+              placeholder="dd/mm/yyyy או mm/yyyy או yyyy"
+              [maxDate]="maxAllowedDate"
+              [view]="viewMode"
+              [dateFormat]="dateFormat"
+              [showIcon]="true"
+              [iconDisplay]="'input'" 
+           
+              (onInput)="onUserTyping($event)"
+              (onBlur)="onBlur(calendar)"
+              [keepInvalid]="true"
+              ></p-calendar>
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('birthDate')">{{ getFieldError('birthDate') }}</small> -->
             </div>
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block regular-14-main-dark">תאריך הנפקת ת"ז</label>
-              <p-calendar formControlName="idIssueDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
+              <p-calendar formControlName="idIssueDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body" placeholder="dd/mm/yyyy"></p-calendar>
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('idIssueDate')">{{ getFieldError('idIssueDate') }}</small> -->
             </div>
             <div class="col-12 col-md-4 mb-2">
               <label class="form-label text-end d-block regular-14-main-dark">תאריך תום תוקף ת"ז</label>
-              <p-calendar formControlName="idExpiryDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body"></p-calendar>
+              <p-calendar formControlName="idExpiryDate" class="w-100" dateFormat="dd/mm/yy" appendTo="body" placeholder="dd/mm/yyyy"></p-calendar>
               <!-- <small class="p-error d-block text-end" *ngIf="getFieldError('idExpiryDate')">{{ getFieldError('idExpiryDate') }}</small> -->
             </div>
           </div>

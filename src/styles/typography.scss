@@ -5,9 +5,11 @@
 
 // Font families
 $font-families: (
-  'regular': ('Arial, sans-serif', normal),
-  'medium': ('Arial, sans-serif', 500),
-  'bold': ('Arial, sans-serif', bold)
+  'regular': ('MZTF Sans, Arial, sans-serif', 400),
+  'medium': ('MZTF Sans, Arial, sans-serif', 500),
+  'bold': ('MZTF Sans, Arial, sans-serif', 700),
+  'black': ('MZTF Sans, Arial, sans-serif', 900),
+  'light': ('MZTF Sans, Arial, sans-serif', 300)
 );
 
 // Font sizes mapping

@@ -3,7 +3,8 @@
 // Brand Color Palette
 $colors: (
     "main-dark": #323c4b,
-    "main-brand": #ff7d4b,
+    "main": #FF6600,
+    "second": #5859E0,
     "danger": #f43e37,
     "success": #28a745,
     "white": #ffffff,
@@ -11,8 +12,11 @@ $colors: (
 
 // Global Color Variables
 :root {
-    // Brand Colors
-    --color-primary: #{map.get($colors, "main-brand")};
+    // main Colors
+    --color-primary: #{map.get($colors, "main")};
+
+    //Second color
+    --color-secondary: #{map.get($colors, "second")};
 
     // Text Colors
     --text-primary: #{map.get($colors, "main-dark")};
@@ -23,10 +27,17 @@ $colors: (
     // Backward Compatibility Aliases
     --primary-color: var(--color-primary);
 
+    --white: #{map.get($colors, "white")};
+
+    --red: #{map.get($colors, "danger")};
+
     // Dark Mode Variables
     [data-theme="dark"] {
         // Brand Colors (same as light)
-        --color-primary: #{map.get($colors, "main-brand")};
+        --color-primary: #{map.get($colors, "main")};
+
+        //Second color
+        --color-secondary: #{map.get($colors, "second")};
 
         // Text Colors
         --text-primary: #{map.get($colors, "white")};
@@ -40,7 +51,10 @@ $colors: (
 @media (prefers-color-scheme: dark) {
     :root {
         // Brand Colors (same as light)
-        --color-primary: #{map.get($colors, "main-brand")};
+        --color-primary: #{map.get($colors, "main")};
+
+        //Second color
+        --color-secondary: #{map.get($colors, "second")};
 
         // Text Colors
         --text-primary: #{map.get($colors, "white")};

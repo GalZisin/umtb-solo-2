@@ -1,16 +1,49 @@
 // Font Face Declarations
+/* MZTF Sans Light (300) */
 @font-face {
-    font-family: 'FBTipografen';
-    src: url('../assets/fonts/fbtipografen-regular-webfont.eot');
-    src: url('../assets/fonts/fbtipografen-regular-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../assets/fonts/fbtipografen-regular-webfont.woff') format('woff'),
-        url('../assets/fonts/fbtipografen-regular-webfont.ttf') format('truetype'),
-        url('../assets/fonts/fbtipografen-regular-webfont.svg#fbtipografen_regular') format('svg');
-    font-weight: normal;
+    font-family: 'MZTF Sans';
+    src: url('/assets/fonts/MZTF-Sans-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* MZTF Sans Regular (400) */
+@font-face {
+    font-family: 'MZTF Sans';
+    src: url('/assets/fonts/MZTF-Sans-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* MZTF Sans Medium (500) */
+@font-face {
+    font-family: 'MZTF Sans';
+    src: url('/assets/fonts/MZTF-Sans-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* MZTF Sans Bold (700) */
+@font-face {
+    font-family: 'MZTF Sans';
+    src: url('/assets/fonts/MZTF-Sans-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* MZTF Sans Black (900) */
+@font-face {
+    font-family: 'MZTF Sans';
+    src: url('/assets/fonts/MZTF-Sans-Black.otf') format('opentype');
+    font-weight: 900;
     font-style: normal;
     font-display: swap;
 }
 
 // Font Variables
-$font-primary: 'FBTipografen', Arial, sans-serif;
+$font-primary: 'MZTF Sans', Arial, sans-serif;
 $font-secondary: Arial, sans-serif;
